@@ -1,0 +1,62 @@
+﻿@model IEnumerable<FSWDFinalProject.DATA.EF.Photo>
+    @*@model IEnumerable<FSWDFinalProject.DATA.EF.Reservation>*@
+
+@{
+    ViewBag.Title = "Photos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (User.IsInRole("Admin")|| User.IsInRole("Photographer"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        @*<th>@Html.DisplayNameFor(model => model.Pet)</th>*@
+        <th>@Html.DisplayNameFor(model => model.PhotoID)</th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Pet.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ImageName)*@
+            <img src="@Url.Content("~/Content/Images/" + @item.ImageName)" alt="@item.ImageName"/>
+
+        </td>
+        @*<td>@Html.DisplayFor(model => item.Pet)</td>*@
+        <td>@Html.DisplayFor(model => item.PhotoID)</td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Pet.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.PhotoID })
+
+
+            @if (User.IsInRole("Admin") || User.IsInRole("Photographer"))
+                {
+                @:|  @Html.ActionLink("Edit", "Edit", new { id = item.PhotoID })
+                @:|  @Html.ActionLink("Delete", "Delete", new { id = item.PhotoID })
+
+
+                }
+        </td>
+    </tr>
+}
+
+</table>

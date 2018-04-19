@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FSWDFinalProject.DATA.EF.Reservation>
+
+@{
+    ViewBag.Title = "Reservations";
+}
+
+<h2>@ViewBag.Title</h2>
+@if (User.IsInRole("Admin")|| User.IsInRole("Customer"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SessionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotographerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pet.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudioLocation.StudioName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SessionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhotographerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pet.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudioLocation.StudioName)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.ReservationID })
+
+
+            @if (User.IsInRole("Admin") || User.IsInRole("Customer"))
+                {
+                @:|  @Html.ActionLink("Edit", "Edit", new { id = item.ReservationID })
+                @:|  @Html.ActionLink("Delete", "Delete", new { id = item.ReservationID })
+
+
+                }
+        </td>
+    </tr>
+}
+
+</table>

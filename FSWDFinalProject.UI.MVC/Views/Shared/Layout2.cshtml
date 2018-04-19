@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML>
+<!--
+    Aesthetic by gettemplates.co
+    Twitter: http://twitter.com/gettemplateco
+    URL: http://gettemplates.co
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Furry Fotos, Inc. &mdash; </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free HTML5 Website Template by GetTemplates.co" />
+    <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+    <meta name="author" content="GetTemplates.co" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="~/Content/css/icomoon.css">
+    <!-- Themify Icons-->
+    <link rel="stylesheet" href="~/Content/css/themify-icons.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+    <!-- Bootstrap DateTimePicker -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap-datetimepicker.min.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <!-- Modernizr JS -->
+    <script src="~/Scripts/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!--Custom-->
+    <link href="~/Content/css/Custom.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            @Html.ActionLink("Furry Fotos, Inc.", "Index", "Home", null, new { @class = "navbar-brand" })
+        </div>
+        <div class="container">
+            @Html.Partial("_LoginPartial")
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                        <li><a href="~/Home/Index">Home</a></li>
+                        <li class="has-dropdown">
+                       
+                            <a href="#">About</a>
+                            <ul class="dropdown">
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                <li>@Html.ActionLink("Studios", "Index", "StudioLocations")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Pets", "Index", "Pets")</li>
+                        <li>@Html.ActionLink("Reservations", "Index", "Reservations")</li>
+                        <li>@Html.ActionLink("Photos", "Index", "Photos")</li>
+                    
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="has-dropdown">
+                                <a href="#">Admin</a>
+                                <ul class="dropdown">
+                                    <li>@Html.ActionLink("Roles", "Index", "RolesAdmin")</li>
+                                    <li>@Html.ActionLink("Users", "Index", "UsersAdmin")</li>
+                                </ul>
+                            </li>
+                        }
+                        }
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </div>
+</body>

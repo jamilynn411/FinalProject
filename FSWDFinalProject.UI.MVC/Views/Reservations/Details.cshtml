@@ -1,0 +1,50 @@
+﻿@model FSWDFinalProject.DATA.EF.Reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SessionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SessionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotographerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhotographerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pet.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pet.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioLocation.StudioName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudioLocation.StudioName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReservationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title</h2>
+<p style="text-align:center;">Our Mission: To provide everlasting memories for the "Furry" members of your family!</p>
+
+<div class="row">
+    <div class="col-md-5">
+
+        <div id="jinx">
+            <img id="textwrap" src="~/Content/Images/Jinx.jpg"  style=" height: 340px; margin: 8px 10px 0px 0px; border: 5px solid #000000;
+             padding: 5px;" /> 
+        </div>
+        <blockquote><em>"We love your pets and much as you do!"</em></blockquote>
+    </div>
+    <div class="col-md-offset-3" style="margin-top:2em;">
+
+        <p style="float:right; padding-right:1.5em;">
+            Furry Fotos Inc. is a local privately owned chain of portrait studios.<br />
+            Our first studio had wonderful reviews and have since expanded<br /> into three total locations! With our newly expanded capablities
+            we<br /> are ready and willing to serve our new clients!
+
+        <p id="FAQ" style="text-align:center;">Below you'll find some <span>F</span>requently <span>A</span>sked <span>Q</span>uestions</p>
+    </div>
+</div>
+
+<div id="accordion">
+    <h3>TEAM</h3>
+    <div>
+        <ul>
+            <li>Trello Board</li>
+            <li>Source Control</li>
+            <li>Two-Tier Project Setup</li>
+            <li>Two Week Sprint</li>
+        </ul>
+    </div>
+    <h3>FED</h3>
+    <div>
+        <ul>
+            <li>Template Integration</li>
+            <li>Implementation of JS/jQ</li>
+            <li>Use of Favicon</li>
+
+        </ul>
+    </div>
+    <h3>MVC</h3>
+    <div>
+        <ul>
+            <li>Shared Layout Integration</li>
+            <li>View Customization and Custom Views</li>
+            <li>Email Capabilities</li>
+            <li>File/Image Upload Capabilities</li>
+            <li>Utilization of Partial Views</li>
+        </ul>
+    </div>
+    <h3>DATA</h3>
+    <div>
+        <ul>
+            <li>Database Creation</li>
+            <li>EDMX Generated</li>
+            <li>Metadata Classes</li>
+            <li>Controller and View Scaffolding</li>
+            <li>Integration of Identity</li>
+            <li>Securing Views</li>
+            <li>CRUD functionality</li>
+        </ul>
+    </div>
+</div>
+
+<button id="toggle" hidden>Toggle icons</button>
+
+@section scripts{
+    <script>
+        $(function () {
+            var icons = {
+                header: "ui-icon-circle-arrow-e",
+                activeHeader: "ui-icon-circle-arrow-s"
+            };
+            $("#accordion").accordion({
+                icons: icons
+            });
+            $("#toggle").button().on("click", function () {
+                if ($("#accordion").accordion("option", "icons")) {
+                    $("#accordion").accordion("option", "icons", null);
+                } else {
+                    $("#accordion").accordion("option", "icons", icons);
+                }
+            });
+        });
+    </script>
+}
